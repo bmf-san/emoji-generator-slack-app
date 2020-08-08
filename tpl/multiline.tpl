@@ -13,12 +13,14 @@ function draw() {
     var context = element.getContext("2d");
     var maxWidth = element.width;
 
+    element.style.background = {{.BgColor}};
     context.clearRect(0, 0, element.width, element.height);
     context.textAlign = "center";
     context.font = "bold 64px Arial";
-    // TODO: 文字列は入力を受け取る。入力は1行もしくは2行とする。1行当たりの文字数に制限はない。
-    context.fillText("Hello", element.width*0.5, 56, maxWidth);
-    context.fillText("World", element.width*0.5, 120, maxWidth);
+    context.fillStyle = {{.Color}};
+    // FIXME: Optimal size varies depending on the size, so calculation is required
+    context.fillText({{.Line1}}, element.width*0.5, 56, maxWidth);
+    context.fillText({{.Line2}}, element.width*0.5, 115, maxWidth);
 }
 </script>
 </body>
